@@ -19,10 +19,12 @@ import twitter4j.conf.ConfigurationBuilder;
  * @author Marcos
  */
 public class MetodosTwitter {
- Twitter twitter;
+
+    Twitter twitter;
     /*
      constructor que da acceso a nuestra cuenta de twitter
      */
+
     public MetodosTwitter() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
@@ -34,25 +36,30 @@ public class MetodosTwitter {
         twitter = new TwitterFactory(cb.build()).getInstance();
 
     }
-public void verLineaTiempo() throws TwitterException{
-    
-     List<Status> statuses = twitter.getHomeTimeline();
+
+    public void verLineaTiempo() throws TwitterException {
+
+        List<Status> statuses = twitter.getHomeTimeline();
         System.out.println("Showing home timeline.");
         for (Status status : statuses) {
             System.out.println(status.getUser().getName() + ":"
                     + status.getText());
-}
-}
- public void buscarTuit(String busqueda) throws TwitterException{
-     
+        }
+    }
+
+    public void buscarTuit(String busqueda) throws TwitterException {
+
         Query query = new Query(busqueda);
         QueryResult result = twitter.search(query);
         for (Status status : result.getTweets()) {
             System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
         }
 
-    
-}
+    }
 
+    public void twittear(String tweet) throws TwitterException {    
+        Status status = twitter.updateStatus(tweet);
+        System.out.println("Successfully updated the status to [" + status.getText() + "].");
+    }
 
 }
