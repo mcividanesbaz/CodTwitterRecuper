@@ -26,7 +26,7 @@ public class MetodosTwitter {
      */
 
     public MetodosTwitter() {
-        ConfigurationBuilder cb = new ConfigurationBuilder();
+    /*    ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("sfykEWIIWMM60T0apJFNGmc9n")
                 .setOAuthConsumerSecret("DnFd8UbiNXcxoHhei4kQ4wMsctTHjI8MkW0fqVjCdSfdWaSBqW")
@@ -34,8 +34,12 @@ public class MetodosTwitter {
                 .setOAuthAccessTokenSecret("R9rGWgmyoUW5vz0wHypXNlgZn7F7ArU7mGf3Ibies6h6d");
 
         twitter = new TwitterFactory(cb.build()).getInstance();
-
+*/
+      twitter = new TwitterFactory("twitter4j.properties").getInstance();
     }
+    /* 
+     metodo que se utiliza para vuscar tweets
+     */
 
     public void verLineaTiempo() throws TwitterException {
 
@@ -46,6 +50,9 @@ public class MetodosTwitter {
                     + status.getText());
         }
     }
+    /*
+     metodo que se utiliza para buscar tweets
+     */
 
     public void buscarTuit(String busqueda) throws TwitterException {
 
@@ -56,8 +63,11 @@ public class MetodosTwitter {
         }
 
     }
+    /*
+     metodo para twittear
+     */
 
-    public void twittear(String tweet) throws TwitterException {    
+    public void twittear(String tweet) throws TwitterException {
         Status status = twitter.updateStatus(tweet);
         System.out.println("Successfully updated the status to [" + status.getText() + "].");
     }

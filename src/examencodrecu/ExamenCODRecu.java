@@ -18,7 +18,9 @@ public class ExamenCODRecu {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws TwitterException {
-
+/*
+        variables 
+        */
       String busqueda;
         String tweet;
         int opcion;
@@ -26,7 +28,9 @@ public class ExamenCODRecu {
         
         
         MetodosTwitter obj = new MetodosTwitter();
-        
+        /*
+        menu para elegir la opcion que quieres
+        */
          do {
             opcion = Integer.parseInt(JOptionPane.showInputDialog("opciones: \n1 --> TimeLine\n2 --> Buscar\n3 --> Tweettear\n4 --> Exit"));
             switch (opcion) {
