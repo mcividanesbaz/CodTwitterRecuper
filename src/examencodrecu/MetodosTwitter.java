@@ -5,7 +5,10 @@
  */
 package examencodrecu;
 
+import java.util.List;
+import twitter4j.Status;
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -29,5 +32,16 @@ public class MetodosTwitter {
         twitter = new TwitterFactory(cb.build()).getInstance();
 
     }
+public void verLineaTiempo() throws TwitterException{
+    
+     List<Status> statuses = twitter.getHomeTimeline();
+        System.out.println("Showing home timeline.");
+        for (Status status : statuses) {
+            System.out.println(status.getUser().getName() + ":"
+                    + status.getText());
+}
+}
+
+
 
 }
