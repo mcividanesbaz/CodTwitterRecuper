@@ -6,6 +6,8 @@
 package examencodrecu;
 
 import java.util.List;
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -41,7 +43,16 @@ public void verLineaTiempo() throws TwitterException{
                     + status.getText());
 }
 }
+ public void buscarTuit(String busqueda) throws TwitterException{
+     
+        Query query = new Query(busqueda);
+        QueryResult result = twitter.search(query);
+        for (Status status : result.getTweets()) {
+            System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+        }
 
+    
+}
 
 
 }
